@@ -7,6 +7,8 @@ import {
   usingMap,
   usingMapInObjects,
   usingSlice,
+  usingSpliceToAdd,
+  usingSpliceToReplace,
   usingfindIndex,
 } from "./ArrayPractice";
 
@@ -78,3 +80,17 @@ it("mapObject", () => {
     ])
   ).toEqual([{ nitish: 99 }, { pratik: 100 }]);
 });
+//test case for splice
+it("Splice Insert", () => {
+  console.log(usingSpliceToAdd([1, 2, 3, 4, 5], 1, 10));
+});
+expect(usingSpliceToAdd([1, 2, 3, 4, 5, 6], 3, 10)).toEqual([
+  1, 2, 3, 10, 4, 5, 6,
+]);
+
+it("Splice Replace", () => {
+  console.log(usingSpliceToReplace([1, 2, 3, 4, 5], 1, 10));
+});
+expect(usingSpliceToReplace([1, 2, 3, 4, 5, 6], 3, 10)).toEqual([
+  1, 2, 3, 10, 5, 6,
+]);

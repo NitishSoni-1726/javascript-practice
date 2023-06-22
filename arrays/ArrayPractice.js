@@ -63,3 +63,16 @@ export function usingMapInObjects(array) {
   const newArray = array.map(({ key, value }) => ({ [key]: value }));
   return newArray;
 }
+
+//splice
+
+export function usingSpliceToAdd(array, index, newElement) {
+  // here it will add a new element in the given index
+  array.splice(index, 0, newElement);
+  return array;
+}
+
+export function usingSpliceToReplace(array, index, newElement) {
+  array.splice(index, 1, newElement);
+  return array;
+}
