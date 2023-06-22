@@ -1,6 +1,7 @@
 import { expect, test } from "vitest";
 import {
   Solution1,
+  Solution8,
   Solution10,
   Solution2,
   Solution3,
@@ -80,7 +81,14 @@ test("Solution5", () => {
 });
 
 //test case for Solution 6
-test("Solution6", () => {});
+test("Solution6", () => {
+  expect(Solution6([1, 2, 3, 4, 5, 5, 5, 3, 4, 2, 1])).toEqual([1, 2, 3, 4, 5]);
+  expect(Solution6(["Nitish", "Jassi", "Pushp", "Nitish"])).toEqual([
+    "Nitish",
+    "Jassi",
+    "Pushp",
+  ]);
+});
 
 //test case for Solution 7
 test("Solution7", () => {
@@ -92,14 +100,39 @@ test("Solution7", () => {
 });
 
 //test case for Solution 8
-test("Solution8", () => {});
+test("Solution8", () => {
+  expect(Solution8([1, 2, [3, 4, [5]]])).toEqual([1, 2, 3, 4, 5]);
+  expect(Solution8([1, 2, [3, 4, [5, [6, 7]]]])).toEqual([1, 2, 3, 4, 5, 6, 7]);
+  expect(Solution8([1, 2, [7, 8, 9], [3, 4, [5]]])).toEqual([
+    1, 2, 7, 8, 9, 3, 4, 5,
+  ]);
+});
 
 //test case for Solution 9
 test("Solution9", () => {
-  console.log(Solution9([1, 2, 3, 4], 3));
+  expect(Solution9([1, 2, 3, 4, 5, 6], 2)).toEqual([
+    [1, 2],
+    [3, 4],
+    [5, 6],
+  ]);
+  expect(Solution9([1, 2, 3, 4, 5, 6, 7], 2)).toEqual([
+    [1, 2],
+    [3, 4],
+    [5, 6],
+    [7],
+  ]);
+  expect(Solution9([1, 2, 3, 4, 5, 6], 4)).toEqual([
+    [1, 2, 3, 4],
+    [5, 6],
+  ]);
 });
 
 //test case for Solution 10
 test("Solution10", () => {
-  console.log(Solution10([1, 2, 3], [2, 3, 4, 6, 7], [2, 3, 4]));
+  expect(Solution10([1, 2, 3], [2, 3, 4, 6, 7], [2, 3, 4], [3, 4])).toEqual([
+    3,
+  ]);
+  expect(Solution10([1, 4, 3], [2, 3, 4, 6, 7], [2, 3, 4], [3, 4])).toEqual([
+    4, 3,
+  ]);
 });

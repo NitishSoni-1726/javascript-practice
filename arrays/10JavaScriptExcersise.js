@@ -49,7 +49,9 @@ export function Solution5(array, element1, element2) {
 }
 
 //Solution 6
-export function Solution6(array) {}
+export function Solution6(array) {
+  return array.filter((element, id) => array.indexOf(element) === id);
+}
 
 //Solution 7
 export function Solution7(array1, array2) {
@@ -71,29 +73,69 @@ export function Solution7(array1, array2) {
 }
 
 //Solution 8
-export function Solution8() {}
+export function Solution8(inputArr) {
+  let output = [];
+  for (let i = 0; i < inputArr.length; i++) {
+    if (Array.isArray(inputArr[i])) {
+      output = output.concat(Solution8(inputArr[i]));
+    } else {
+      output.push(inputArr[i]);
+    }
+  }
+
+  return output;
+}
 
 //Solution 9
+// if size is not a positive number, empty array is returned
+//
 export function Solution9(array, Size) {
   if (Size <= 0) {
-    return "Size Can't be Negative or 0";
+    return [];
   } else {
-    let Array1 = [];
-    for (let i = 0; i < Size; i++) {
-      Array1.push(array[i]);
+    let numChunks = Math.ceil(array.length / Size);
+    let output = [];
+    for (let i = 0; i < numChunks; i++) {
+      output = [...output, array.slice(i * Size, (i + 1) * Size)];
     }
+    return output;
+    // let Array1 = [];
+    // let chunk = [];
 
-    return Array1;
+    // for (let i = 0; i < array.length; i++) {
+    //   if (chunk.length === Size) {
+    //     Array1 = [...Array1, chunk];
+    //     count = 0;
+    //     chunk = [];
+    //   }
+
+    //   chunk.push(array[i]);
+    // }
+    // Array1 = [...Array1, chunk];
+    // return Array1;
   }
 }
 
 //Solution 10
 export function Solution10(...arrays) {
-  const array = [...arrays];
-  for (let i = 0; i < array.length; i++) {
-    console.log(array[i]);
-    for (let j = 0; j < array[i].length; j++) {
-      console.log(array[i][j]);
-    }
+  if (arrays.length < 2) {
+    return arrays[0];
   }
+
+  const arrayOfArrays = [...arrays];
+  let commonElsArrs = [];
+
+  for (let i = 0; i < arrayOfArrays.length - 1; i++) {
+    let arr1 = arrayOfArrays[i];
+    let arr2 = arrayOfArrays[i + 1];
+
+    let commonEls = [];
+    for (let j = 0; j < arr1.length; j++) {
+      if (arr2.includes(arr1[j])) {
+        commonEls.push(arr1[j]);
+      }
+    }
+    commonElsArrs = [...commonElsArrs, commonEls];
+  }
+  return Solution10(...commonElsArrs);
 }
