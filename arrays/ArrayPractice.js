@@ -76,3 +76,17 @@ export function usingSpliceToReplace(array, index, newElement) {
   array.splice(index, 1, newElement);
   return array;
 }
+
+//push
+
+export function usingPush(array, newElement) {
+  array.push(newElement);
+  return array;
+}
+
+//pop
+
+export function usingPop(array) {
+  array.pop();
+  return array;
+}

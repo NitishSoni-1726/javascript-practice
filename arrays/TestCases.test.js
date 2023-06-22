@@ -6,6 +6,8 @@ import {
   usingFind,
   usingMap,
   usingMapInObjects,
+  usingPop,
+  usingPush,
   usingSlice,
   usingSpliceToAdd,
   usingSpliceToReplace,
@@ -26,34 +28,28 @@ it("Delete Element of a Given Array", () => {
 });
 //test case for slice
 it("Slice", () => {
-  console.log(usingSlice([1, 2, 3, 4], 0, 3));
-  console.log(usingSlice([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 4, 7));
   expect(usingSlice([1, 2, 3, 4, 5], 2, 4)).toEqual([3, 4]);
 });
 //test case for concat
 it("Concat", () => {
-  console.log(usingConcat([1, 3, 4], [1, 5, 7]));
   expect(usingConcat([1, 2, 3, 4], [5, 6, 7, 8, 9])).toEqual([
     1, 2, 3, 4, 5, 6, 7, 8, 9,
   ]);
 });
 //test case for findIndex
 it("Find Index", () => {
-  console.log(usingfindIndex([1, 2, 3, 4], 3));
   expect(usingfindIndex([1, 2, 3, 4, 5, 6, 7, 8, 9], 9)).toEqual(8);
   expect(usingfindIndex([1, 2, 3, 4, 5, 6, 7, 8, 9], 6)).toEqual(5);
   expect(usingfindIndex([1, 2, 3, 4, 5, 6, 7, 8, 9], 4)).toEqual(3);
 });
 //test case for find
 it("Find", () => {
-  console.log(usingFind([1, 2, 3, 4, 5], 1));
   expect(usingFind([1, 2, 3, 4, 5], 6)).toEqual(undefined);
   expect(usingFind([1, 2, 3, 4, 5], 2)).toEqual(2);
   expect(usingFind([1, 2, 3, 4, 5], 4)).toEqual(4);
 });
 //test case for filter
 it("Filter", () => {
-  console.log(usingFilter([1, 2, 3, 4, 5], 3));
   expect(usingFilter([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)).toEqual([
     4, 5, 6, 7, 8, 9,
   ]);
@@ -63,16 +59,10 @@ it("Filter", () => {
 });
 //test case for map
 it("map", () => {
-  console.log(usingMap([1, 2, 3, 4, 5]));
+  expect(usingMap([1, 2, 3, 4, 5])).toEqual([3, 4, 5, 6, 7]);
 });
 
 it("mapObject", () => {
-  console.log(
-    usingMapInObjects([
-      { key: "nitish", value: 99 },
-      { key: "pratik", value: 100 },
-    ])
-  );
   expect(
     usingMapInObjects([
       { key: "nitish", value: 99 },
@@ -82,15 +72,21 @@ it("mapObject", () => {
 });
 //test case for splice
 it("Splice Insert", () => {
-  console.log(usingSpliceToAdd([1, 2, 3, 4, 5], 1, 10));
+  expect(usingSpliceToAdd([1, 2, 3, 4, 5, 6], 3, 10)).toEqual([
+    1, 2, 3, 10, 4, 5, 6,
+  ]);
 });
-expect(usingSpliceToAdd([1, 2, 3, 4, 5, 6], 3, 10)).toEqual([
-  1, 2, 3, 10, 4, 5, 6,
-]);
 
 it("Splice Replace", () => {
-  console.log(usingSpliceToReplace([1, 2, 3, 4, 5], 1, 10));
+  expect(usingSpliceToReplace([1, 2, 3, 4, 5, 6], 3, 10)).toEqual([
+    1, 2, 3, 10, 5, 6,
+  ]);
 });
-expect(usingSpliceToReplace([1, 2, 3, 4, 5, 6], 3, 10)).toEqual([
-  1, 2, 3, 10, 5, 6,
-]);
+//test case for push
+it("Push", () => {
+  expect(usingPush([1, 2, 3, 5, 6, 7], 9)).toEqual([1, 2, 3, 5, 6, 7, 9]);
+});
+//test case for pop
+it("pop", () => {
+  expect(usingPop([1, 2, 3, 4, 5, 5, 6])).toEqual([1, 2, 3, 4, 5, 5]);
+});
