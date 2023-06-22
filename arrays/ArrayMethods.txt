@@ -1,0 +1,13 @@
+Array  methods
+----------------
+slice
+concat
+findIndex
+find
+filter
+map
+splice
+push
+pop
+
+
