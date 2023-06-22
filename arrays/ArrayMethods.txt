@@ -2,10 +2,10 @@ Array  methods
 ----------------
 slice // selects a part from an array between provided index
 concat // Concat is used to merge two array
-findIndex //findIndex is used to find the index of the asked element 
-find //find is used to find the element present in an array
+findIndex // findIndex is used to find the index of the asked element 
+find // find is used to find the element present in an array
 filter // filter is used to filter the element of an array from asked filters
-map
+map // map is used to create a new array where each element goes through a function called it is also used for formatting an array of Objects
 splice
 push
 pop

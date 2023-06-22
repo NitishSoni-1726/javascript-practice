@@ -4,6 +4,8 @@ import {
   usingConcat,
   usingFilter,
   usingFind,
+  usingMap,
+  usingMapInObjects,
   usingSlice,
   usingfindIndex,
 } from "./ArrayPractice";
@@ -56,4 +58,23 @@ it("Filter", () => {
   expect(usingFilter([1, 2, 3, 4, 5, 6, 7, 8, 9], 7)).toEqual([8, 9]);
   expect(usingFilter([1, 2, 3, 4, 5, 6, 7, 8, 9], 4)).toEqual([5, 6, 7, 8, 9]);
   expect(usingFilter([1, 2, 3, 4, 5, 6, 7, 8, 9], 9)).toEqual([]);
+});
+//test case for map
+it("map", () => {
+  console.log(usingMap([1, 2, 3, 4, 5]));
+});
+
+it("mapObject", () => {
+  console.log(
+    usingMapInObjects([
+      { key: "nitish", value: 99 },
+      { key: "pratik", value: 100 },
+    ])
+  );
+  expect(
+    usingMapInObjects([
+      { key: "nitish", value: 99 },
+      { key: "pratik", value: 100 },
+    ])
+  ).toEqual([{ nitish: 99 }, { pratik: 100 }]);
 });

@@ -49,3 +49,17 @@ export function usingFilter(array, filter) {
   const FilteredArray = array.filter((element) => element > filter);
   return FilteredArray;
 }
+
+//map
+
+export function usingMap(array) {
+  //here it will return an new array where 2 is added to each element in the provided array
+  const newArray = array.map((x) => x + 2);
+  return newArray;
+}
+
+export function usingMapInObjects(array) {
+  //here it will return an array of object where the provided array is changed from [{key:name,value:value},...] to [{key:value},...]
+  const newArray = array.map(({ key, value }) => ({ [key]: value }));
+  return newArray;
+}
