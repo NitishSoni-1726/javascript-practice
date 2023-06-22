@@ -1,5 +1,5 @@
 //For Loop
-export default function deleteElementUsingLoop(array, Index) {
+export function deleteElementUsingLoop(array, Index) {
   if (Index < 0 || Index > array.length) {
     return array;
   } else {
@@ -14,3 +14,7 @@ export default function deleteElementUsingLoop(array, Index) {
 }
 
 //Slice
+export function usingSlice(array, startingIndex, endingIndex) {
+  const sliceArr = array.slice(startingIndex, endingIndex);
+  return sliceArr;
+}

@@ -1,6 +1,6 @@
 Array  methods
 ----------------
-slice
+slice // selects a part from an array between provided index
 concat
 findIndex
 find
